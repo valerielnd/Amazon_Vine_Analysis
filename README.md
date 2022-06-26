@@ -124,17 +124,17 @@ After all the dataFrames were created, we loaded the DataFrames that correspond 
 
 As $ellBy needs to determine if enrolling in a program like Amazon Vine is worth it, we
 used PySpark and the data in the dataFrame we created for the vine table, which contains mainly
-information about the reviews about the software, to perform the next part of our analysis.
+information regarding the reviews about the software, to perform the next part of our analysis.
 
 To proceed, we created a new DataFrame in which we retrieved all the rows where the total_votes count 
 is equal to or greater than 20 to pick reviews that are more likely helpful.
 
-![vine_helpful]()
+![vine_helpful](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_helpful_votes.png)
 
 Using the new DataFrame, we retrieved all the rows where the number of helpful_votes divided by total_votes is equal 
 to or greater than 50%.
 
-![vine_helpful]()
+![vine_helpful_total]()
 
 Then, we filtered the new dataFrame to retrieve all the rows where a review was written as part of the Vine program (paid):
 ![vine_paid]()
