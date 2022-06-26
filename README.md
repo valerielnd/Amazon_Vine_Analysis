@@ -93,17 +93,17 @@ Once we had the dataframe, we transformed it into the following four separate Da
 		the agg() and count functions:
 		![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
 		
-2-	The products_table DataFrame
+2.	The products_table DataFrame
 	*	To create this dataFrame, we used the select() function to select the product_id and product_title, then drop 
 		duplicates with the drop_duplicates() function to retrieve only unique product_ids.
 		![product_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/products_table.png)
 	
-3-	The review_id_table DataFrame
+3.	The review_id_table DataFrame
 	*	To create the review_id_table, we used the select() function to select the columns that are in the review_id_table in pgAdmin,
 		and converted the review_date column to a date using the to_date() function:
 		![review_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/review_table.png)
 	
-4-	The vine_table DataFrame	
+4.	The vine_table DataFrame	
 	*	To create the vine_table, use the select() function to select only the columns that are in the vine_table in pgAdmin
 		![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table.png)
 
