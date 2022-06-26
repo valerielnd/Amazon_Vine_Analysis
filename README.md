@@ -88,35 +88,35 @@ The dataFrame we created has the following schema:
 
 Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
 
-1	The customers_table DataFrame
+1-	The customers_table DataFrame
 	To create this dataFrame, we used the groupby() function on the customer_id column and the to count all the customers, we used the 
 	the agg() and count functions:
-	![customer_dataframe]()
+	![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
 	
-2	The products_table DataFrame
+2-	The products_table DataFrame
 	To create this dataFrame, we used the select() function to select the product_id and product_title, then drop 
 	duplicates with the drop_duplicates() function to retrieve only unique product_ids.
-	![product_dataframe]()
+	![product_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/products_table.png)
 	
-3	The review_id_table DataFrame
+3-	The review_id_table DataFrame
 	To create the review_id_table, we used the select() function to select the columns that are in the review_id_table in pgAdmin,
 	and converted the review_date column to a date using the to_date() function:
-	![review_dataframe]()
+	![review_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/review_table.png)
 	
-4	The vine_table DataFrame	
+4-	The vine_table DataFrame	
 	To create the vine_table, use the select() function to select only the columns that are in the vine_table in pgAdmin
-	![vine_dataframe]()
+	![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table.png)
 
 
 After all the dataFrames were created, we loaded the DataFrames that correspond to tables in pgAdmin:
 
-![customer_table_query]()
+![customer_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table_query.png)
 
-![product_table_query]()
+![product_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/product_table_query.png)
 
-![review_table_query]()
+![review_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/review_table_query.png)
 
-![vine_table_query]()
+![vine_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table_query.png)
 
 
 ### Determine Bias of Vine Reviews
