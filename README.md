@@ -80,11 +80,11 @@ The database we created contained the following tables and attributes:
 
 After we created the tables, we used PaySpark to download the dataset into a DataFrame:
 
-![download_dataset]()
+![download_dataset](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/dowload_dataset.png)
 
 The dataFrame we created has the following schema:
 
-![dataset_schema]()
+![dataset_schema](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/data_set_schema.png)
 
 Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
 
