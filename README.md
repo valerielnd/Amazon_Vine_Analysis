@@ -88,10 +88,10 @@ The dataFrame we created has the following schema:
 
 Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
 
-1-	The customers_table DataFrame
+1.	The customers_table DataFrame
 	*	To create this dataFrame, we used the groupby() function on the customer_id column and the to count all the customers, we used the 
-			the agg() and count functions:
-			![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
+		the agg() and count functions:
+		![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
 		
 2-	The products_table DataFrame
 	*	To create this dataFrame, we used the select() function to select the product_id and product_title, then drop 
