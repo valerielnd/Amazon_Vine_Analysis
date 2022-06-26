@@ -89,7 +89,7 @@ The dataFrame we created has the following schema:
 Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
 
 1.	The customers_table DataFrame
-	*	To create this dataFrame, we used the groupby() function on the customer_id column and the to count all the customers, we used the 
+	*	To create this dataFrame, we used the groupby() function on the customer_id column and to count all the customers, we used the 
 		the agg() and count functions:
 		![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
 		
@@ -102,6 +102,7 @@ Once we had the dataframe, we transformed it into the following four separate Da
 	*	To create the review_id_table, we used the select() function to select the columns that are in the review_id_table in pgAdmin,
 		and converted the review_date column to a date using the to_date() function:
 		![review_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/review_table.png)
+		![schema_review](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/to_date_result.png)
 	
 4.	The vine_table DataFrame	
 	*	To create the vine_table, use the select() function to select only the columns that are in the vine_table in pgAdmin
