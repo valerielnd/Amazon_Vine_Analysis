@@ -137,43 +137,44 @@ to or greater than 50%.
 ![vine_helpful_total](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_helpful_total.png)
 
 Then, we filtered the new dataFrame to retrieve all the rows where a review was written as part of the Vine program (paid):
+
 ![vine_paid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_paid.png)
 
 We repeated the last step to retrieve all the rows where a review was not part of the Vine program (unpaid):
 
-![vine_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
+![vine_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_unpaid.png)
 
 We used those four dataFrames to retrieve the following information:
 
 * 	The total number number of paid reviews
-	![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_paid.png)
+	![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/paid_reviews.png)
 	
-*	The total number number of paid reviews
-	![upaid_reviews]()
+*	The total number number of unpaid reviews
+	![upaid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
 	
 *	The total number of 5-star paid reviews
-	![paid_5star_reviews]()
+	![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_paid.png)
 	
 *	The total number of 5-star unpaid reviews
-	![paid_5star_reviews]()
+	![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_unpaid.png)
 	
 *	The percentage of 5-star reviews for paid reviews
-	![percent_paid_5star_reviews]()
+	![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_paid.png)
 	
 *	The percentage of 5-star reviews for unpaid reviews
-	![percent_paid_5star_reviews]()
+	![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_unpaid.png)
 	
 We created the following Pandas dataFrame to summarize the results and also plot them:
 
-![PD_results]()
+![PD_results](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/PD_results.png)
 
 We plotted the number of paid and unpaid reviews against the number of paid and unpaid 5-star reviews:
 
-![plot_paid_unpaid]()
+![plot_paid_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/plot_paid_unpaid.png)
 
 And finally, we plotted the percentage of 5-star paid reviews against the percentage of unpaid 5-star reviews:
 
-![polt_percentage]()
+![polt_percentage](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/plot_percentage.png)
 
 Since the percentage of 5-star paid reviews is greater than the percent of 5-star unpaid reviews, while the number
 of unpaid reviews is far greater than the number of paid reviews; there could be a positive bias for reviews in the Vine program.
