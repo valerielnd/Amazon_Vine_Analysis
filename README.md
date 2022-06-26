@@ -106,7 +106,7 @@ Once we had the dataframe, we transformed it into the following four separate Da
 	
 4.	The vine_table DataFrame	
 	*	To create the vine_table, use the select() function to select only the columns that are in the vine_table in pgAdmin
-		![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table.png)
+		![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table_df.png)
 
 
 After all the dataFrames were created, we loaded the DataFrames that correspond to the tables in pgAdmin:
