@@ -109,7 +109,7 @@ Once we had the dataframe, we transformed it into the following four separate Da
 		![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table.png)
 
 
-After all the dataFrames were created, we loaded the DataFrames that correspond to tables in pgAdmin:
+After all the dataFrames were created, we loaded the DataFrames that correspond to the tables in pgAdmin:
 
 ![customer_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table_query.png)
 
