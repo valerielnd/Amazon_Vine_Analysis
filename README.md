@@ -142,7 +142,7 @@ Then, we filtered the new dataFrame to retrieve all the rows where a review was 
 
 We repeated the last step to retrieve all the rows where a review was not part of the Vine program (unpaid):
 
-![vine_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_unpaid.png)
+![vine_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_unpaid_rev.png)
 
 We used those four dataFrames to retrieve the following information:
 
