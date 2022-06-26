@@ -1,1 +1,186 @@
 # Amazon_Vine_Analysis
+
+## Project overview
+
+The company $ellBy is about to release a large catalog of products on a leading retail website. 
+As, they are interested in enrolling in a program that gives out free products to select reviewers, 
+to help them determine if this worth the cost, in this project we will analyze reviews written by 
+members of Amazon Vine, a service that allows manufacturers and publishers to receive reviews for 
+their products.
+
+
+## Ressouces 
+
+In this project, we are given access approximately 50 datasets. Each one contains reviews of a specific product, 
+from clothing apparel to wireless products:
+
+[Amazon Review datasets](https://s3.amazonaws.com/amazon-reviews-pds/tsv/index.txt)
+
+To do our analysis we chose the dataset that contains reviews about thousands of software:
+
+[Project Dataset](https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Software_v1_00.tsv.gz)
+
+With the chosen dataset, we use PySpark, a unified analytics engine for large-scale data processing, to 
+perform the ETL process to extract the dataset and transform the data.
+
+Then, we loaded the transformed data into pgAdmin connected to AWS RDS instance. Finally, we also use Pyspark to determine
+if there is any bias toward favorable reviews from Vine members in your dataset.
+
+
+## Analysis results
+
+### Perform ETL on Amazon Product Reviews
+
+The first step of our analysis is to extract the data in our chosen dataset.
+
+The dataset we are analyzing as all other amazon review datasets has the following schemata:
+
+marketplace       - 2 letter country code of the marketplace where the review was written.
+customer_id       - Random identifier that can be used to aggregate reviews written by a single author.
+review_id         - The unique ID of the review.
+product_id        - The unique Product ID the review pertains to. In the multilingual dataset the reviews
+                    for the same product in different countries can be grouped by the same product_id.
+product_parent    - Random identifier that can be used to aggregate reviews for the same product.
+product_title     - Title of the product.
+product_category  - Broad product category that can be used to group reviews 
+                    (also used to group the dataset into coherent parts).
+star_rating       - The 1-5 star rating of the review.
+helpful_votes     - Number of helpful votes.
+total_votes       - Number of total votes the review received.
+vine              - Review was written as part of the Vine program.
+verified_purchase - The review is on a verified purchase.
+review_headline   - The title of the review.
+review_body       - The review text.
+review_date       - The date the review was written.
+
+To perform our analsysis, we are interested in the data in some of those columns such as customer_id, review_id and star_rating.
+
+Before we started transforming the data, we created a new database with Amazon RDS to store it trough pgAdmin.
+
+The database we created contained the following tables and attributes:
+
+* review_id table with the following attributes: 
+	* review_id
+	* customer_id
+	* product_id
+	* product_parent
+* products table with the following attributes: 
+	* product_id
+	* product_title
+* customers table with the following attributes: 
+	* customer_id
+	* customer_count
+* vine table with the following attributes: 
+	* review_id
+	* helpful_votes
+	* star_rating
+	* total_votes
+	* vine
+	* verified_purchase
+
+After we created the tables, we used PaySpark to download the dataset into a DataFrame:
+
+![download_dataset]()
+
+The dataFrame we created has the following schema:
+
+![dataset_schema]()
+
+Once we have the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
+
+1	The customers_table DataFrame
+	To create this dataFrame, we used the groupby() function on the customer_id column and the to count all the customers, we used the 
+	the agg() and count functions:
+	![customer_dataframe]()
+	
+2	The products_table DataFrame
+	To create this dataFrame, we used the select() function to select the product_id and product_title, then drop 
+	duplicates with the drop_duplicates() function to retrieve only unique product_ids.
+	![product_dataframe]()
+	
+3	The review_id_table DataFrame
+	To create the review_id_table, we used the select() function to select the columns that are in the review_id_table in pgAdmin,
+	and converted the review_date column to a date using the to_date() function:
+	![review_dataframe]()
+	
+4	The vine_table DataFrame	
+	To create the vine_table, use the select() function to select only the columns that are in the vine_table in pgAdmin
+	![vine_dataframe]()
+
+
+When all the dataFrames are created, we loaded the DataFrames that correspond to tables in pgAdmin:
+
+![customer_table_query]()
+
+![product_table_query]()
+
+![review_table_query]()
+
+![vine_table_query]()
+
+
+### Determine Bias of Vine Reviews
+
+As $ellBy needs to determine if enrolling in a program like Amazon Vine worths it, we
+used PySpark and the data in the dataFrame we created for the vine table wich contains mainly
+information about the reviews about the software.
+
+To proceed, we created a new DataFrame in wich retrieve all the rows where the total_votes count 
+is equal to or greater than 20 to pick reviews that are more likely to be helpful.
+
+![vine_helpful]()
+
+Using the new DataFrame, we retrieved all the rows where the number of helpful_votes divided by total_votes is equal 
+to or greater than 50%.
+
+![vine_helpful]()
+
+Then, we filtered the new dataFrame to retrieve all the rows where a review was written as part of the Vine program (paid):
+
+![vine_paid]()
+
+We repeated the last to to retrieve all the rows where a review was was not part of the Vine program (unpaid):
+
+![vine_unpaid]()
+
+We used those 4 dataFrames to retrive the following information:
+
+* 	The total number number of paid reviews
+	![paid_reviews]()
+	
+*	The total number number of paid reviews
+	![paid_reviews]()
+	
+*	The total number of 5-star paid reviews
+	![paid_5star_reviews]()
+	
+*	The total number of 5-star unpaid reviews
+	![paid_5star_reviews]()
+	
+*	The percentage of 5-star reviews for paid reviews
+	![percent_paid_5star_reviews]()
+	
+*	The percentage of 5-star reviews for unpaid reviews
+	![percent_paid_5star_reviews]()
+	
+We created the following Pandas dataFrame to summarize the results and also plot them:
+
+![PD_results]()
+
+We ploted the number of paid and unpaid reviews against the number of paid and unpaid 5-star reviews:
+
+![plot_paid_unpaid]()
+
+And finally we plotted the percentage of 5-star paid reviews against the the percentage of unpaid 5-star reviews:
+
+![polt_percentage]()
+
+As the percentage of 5-star paid reviews is greater than the percent of 5-star unpaid reviews while the number
+of unpaid reviews is far greater that number of paid reviews, there could be positive bias for reviews in the Vine program.
+
+One additional analysis we could do to further check those results is to compare which software received the most 5-star
+paid and unpaid reviews to see if they are mostly the same.
+
+
+
+
