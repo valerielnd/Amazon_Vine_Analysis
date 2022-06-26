@@ -134,22 +134,22 @@ is equal to or greater than 20 to pick reviews that are more likely helpful.
 Using the new DataFrame, we retrieved all the rows where the number of helpful_votes divided by total_votes is equal 
 to or greater than 50%.
 
-![vine_helpful_total]()
+![vine_helpful_total](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_helpful_total.png)
 
 Then, we filtered the new dataFrame to retrieve all the rows where a review was written as part of the Vine program (paid):
-![vine_paid]()
+![vine_paid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_paid.png)
 
 We repeated the last step to retrieve all the rows where a review was not part of the Vine program (unpaid):
 
-![vine_unpaid]()
+![vine_unpaid](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
 
 We used those four dataFrames to retrieve the following information:
 
 * 	The total number number of paid reviews
-	![paid_reviews]()
+	![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_paid.png)
 	
 *	The total number number of paid reviews
-	![paid_reviews]()
+	![upaid_reviews]()
 	
 *	The total number of 5-star paid reviews
 	![paid_5star_reviews]()
