@@ -20,16 +20,16 @@ To do our analysis, we chose the dataset that contains reviews about multiple so
 
 [Project Dataset](https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Software_v1_00.tsv.gz)
 
-With the chosen dataset, we use PySpark, a unified analytics engine for large-scale data processing, to 
+With the chosen dataset, we use *PySpark*, a unified analytics engine for large-scale data processing, to 
 perform the ETL process to extract the dataset and transform the data.
 
-Then, we loaded the transformed data into pgAdmin connected to an AWS RDS instance. Finally, we also use Pyspark to determine
+Then, we loaded the transformed data into *pgAdmin* connected to an *AWS PostgreSQL* instance. Finally, we also use *Pyspark* to determine
 if there is any bias toward favorable reviews from Vine members in our dataset.
 
 
 ## Analysis results
 
-### Perform ETL on Amazon Product Reviews
+### Perform ETL on Amazon Product Reviews using PySpark and PostgreSQL
 
 The first step of our analysis is extracting the data from our chosen dataset.
 
@@ -40,7 +40,7 @@ The dataset we are analyzing, as with all other Amazon review datasets, has the 
 *	review_id         - The unique ID of the review.
 *	product_id        - The unique Product ID the review pertains to. In the multilingual dataset, the reviews
                     	for the same product in different countries can be grouped by the same product_id.
-*	product_parent    - Random identifier that can be used to aggregate reviews for the same product.
+*	product_parent    - Random identifier that can aggregate reviews for the same product.
 *	product_title     - Title of the product.
 *	product_category  - Broad product category that can be used to group reviews 
                     (also used to group the dataset into coherent parts).
