@@ -150,19 +150,19 @@ We used those four dataFrames to retrieve the following information:
 	- ![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/paid_reviews.png)
 	
 *	The total number number of unpaid reviews
-	![upaid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
+	- ![upaid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
 	
 *	The total number of 5-star paid reviews
-	![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_paid.png)
+	- ![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_paid.png)
 	
 *	The total number of 5-star unpaid reviews
-	![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_unpaid.png)
+	- ![paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/5star_unpaid.png)
 	
 *	The percentage of 5-star reviews for paid reviews
-	![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_paid.png)
+	- ![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_paid.png)
 	
 *	The percentage of 5-star reviews for unpaid reviews
-	![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_unpaid.png)
+	- ![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_unpaid.png)
 	
 We created the following Pandas dataFrame to summarize the results and also plot them:
 
