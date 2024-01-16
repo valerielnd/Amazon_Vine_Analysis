@@ -33,12 +33,12 @@ if there is any bias toward favorable reviews from Vine members in our dataset.
 
 The first step of our analysis is extracting the data from our chosen dataset.
 
-The dataset we are analyzing, as with all other amazon review datasets, has the following schemata:
+The dataset we are analyzing, as with all other Amazon review datasets, has the following schemata:
 
-*	marketplace       - 2 letter country code of the marketplace where the review was written.
+*	marketplace       - 2-letter country code of the marketplace where the review was written.
 *	customer_id       - Random identifier that can be used to aggregate reviews written by a single author.
 *	review_id         - The unique ID of the review.
-*	product_id        - The unique Product ID the review pertains to. In the multilingual dataset the reviews
+*	product_id        - The unique Product ID the review pertains to. In the multilingual dataset, the reviews
                     	for the same product in different countries can be grouped by the same product_id.
 *	product_parent    - Random identifier that can be used to aggregate reviews for the same product.
 *	product_title     - Title of the product.
@@ -47,15 +47,15 @@ The dataset we are analyzing, as with all other amazon review datasets, has the 
 *	star_rating       - The 1-5 star rating of the review.
 *	helpful_votes     - Number of helpful votes.
 *	total_votes       - Number of total votes the review received.
-*	vine              - Review was written as part of the Vine program.
+*	vine              - The review was written as part of the Vine program.
 *	verified_purchase - The review is on a verified purchase.
 *	review_headline   - The title of the review.
 *	review_body       - The review text.
 *	review_date       - The date the review was written.
 
-To perform our analysis, we are interested in the data in some columns such as customer_id, review_id, and star_rating.
+We are interested in the data in some columns, such as customer_id, review_id, and star_rating, to perform our analysis.
 
-Before transforming the data, we created a new database with Amazon RDS to store the transform data through pgAdmin.
+Before transforming the data, we created a new database with Amazon RDS to store the transformed data through pgAdmin.
 
 The database we created contained the following tables and attributes:
 
@@ -78,7 +78,7 @@ The database we created contained the following tables and attributes:
 	* vine
 	* verified_purchase
 
-After we created the tables, we used PaySpark to download the dataset into a DataFrame:
+After we created the tables, we used PySpark to download the dataset into a DataFrame:
 
 ![download_dataset](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/dowload_dataset.png)
 
@@ -89,7 +89,7 @@ The dataFrame we created has the following schema:
 Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
 
 1.	The customers_table DataFrame
-	*	To create this dataFrame, we used the groupby() function on the customer_id column and to count all the customers, we used the 
+	*	To create this dataFrame, we used the groupby() function on the customer_id column, and to count all the customers, we used the 
 		the agg() and count functions:
 		![customer_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table.png)
 		
@@ -120,7 +120,7 @@ After all the dataFrames were created, we loaded the DataFrames that correspond 
 ![vine_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table_query.png)
 
 
-### Determine Bias of Vine Reviews
+### Determine the Bias of Vine Reviews
 
 As $ellBy needs to determine if enrolling in a program like Amazon Vine is worth it, we
 used PySpark and the data in the dataFrame we created for the vine table, which contains mainly
