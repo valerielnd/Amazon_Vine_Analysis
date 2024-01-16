@@ -146,8 +146,8 @@ We repeated the last step to retrieve all the rows where a review was not part o
 
 We used those four dataFrames to retrieve the following information:
 
-* 	The total number number of paid reviews
-	![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/paid_reviews.png)
+* 	The total number number of paid reviews		
+	- ![paid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/paid_reviews.png)
 	
 *	The total number number of unpaid reviews
 	![upaid_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/unpaid_reviews.png)
