@@ -1,12 +1,12 @@
 # Amazon_Vine_Analysis
 
-## Project overview
+## Project Overview
 
 The company $ellBy is about to release a large catalog of products on a leading retail website. 
 As they are interested in enrolling in a program that gives out free products to select reviewers, 
 to help them determine if this is worth the cost, we will analyze, in this project, reviews written by 
 members of Amazon Vine, a service that allows manufacturers and publishers to receive reviews for 
-their products.
+their products. We aim to determine if there is a bias toward favorable Vine reviews. 
 
 
 ## Ressouces 
