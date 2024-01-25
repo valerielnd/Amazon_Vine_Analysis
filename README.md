@@ -30,7 +30,7 @@ if there is any bias toward favorable reviews from Vine members in our dataset.
 
 The first step of our analysis is extracting the data from our chosen dataset.
 
-The dataset we are analyzing, as with all other Amazon review datasets, has the following schemata:
+The dataset we are analyzing has the following schemata:
 
 *	marketplace       - 2-letter country code of the marketplace where the review was written.
 *	customer_id       - Random identifier that can be used to aggregate reviews written by a single author.
@@ -52,9 +52,9 @@ The dataset we are analyzing, as with all other Amazon review datasets, has the 
 
 We are interested in the data in some columns, such as customer_id, review_id, and star_rating, to perform our analysis.
 
-Before transforming the data, we created a new database with Amazon RDS to store the transformed data through pgAdmin.
+Before transforming the data, we created a new database in Amazon RDS to store the transformed data through pgAdmin.
 
-The database we created contained the following tables and attributes:
+Schema of the AWS database: 
 
 * review_id table with the following attributes: 
 	* review_id
@@ -79,11 +79,13 @@ After we created the tables, we used PySpark to download the dataset into a Data
 
 ![download_dataset](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/dowload_dataset.png)
 
+
 The dataFrame we created has the following schema:
 
 ![dataset_schema](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/data_set_schema.png)
 
-Once we had the dataframe, we transformed it into the following four separate DataFrames that match the table schema in pgAdmin:
+
+We then transformed the dataframe into the following four separate dataframes that match the table schema in pgAdmin:
 
 1.	The customers_table DataFrame
 	*	To create this dataFrame, we used the groupby() function on the customer_id column, and to count all the customers, we used the 
@@ -106,7 +108,7 @@ Once we had the dataframe, we transformed it into the following four separate Da
 		![vine_dataframe](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/vine_table_df.png)
 
 
-After all the dataFrames were created, we loaded the DataFrames that correspond to the tables in pgAdmin:
+After creating the dataframes, we loaded them into their corresponding tables in pgAdmin:
 
 ![customer_table_query](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/customer_table_query.png)
 
@@ -118,10 +120,7 @@ After all the dataFrames were created, we loaded the DataFrames that correspond 
 
 
 ### Determine the Bias of Vine Reviews
-
-As $ellBy needs to determine if enrolling in a program like Amazon Vine is worth it, we
-used PySpark and the data in the dataFrame we created for the vine table, which contains mainly
-information regarding the reviews about the software, to perform the next part of our analysis.
+To evaluate if joining a program like Amazon Vine is beneficial, we utilized PySpark and the data stored in the Vine table, primarily comprised of information related to software reviews.
 
 To proceed, we created a new DataFrame in which we retrieved all the rows where the total_votes count 
 is equal to or greater than 20 to pick reviews that are more likely helpful.
@@ -161,6 +160,8 @@ We used those four dataFrames to retrieve the following information:
 *	The percentage of 5-star reviews for unpaid reviews
 	- ![percent_paid_5star_reviews](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/perc_5star_unpaid.png)
 	
+## Results Summary
+
 We created the following Pandas dataFrame to summarize the results and also plot them:
 
 ![PD_results](https://github.com/valerielnd/Amazon_Vine_Analysis/blob/main/PD_results.png)
