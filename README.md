@@ -2,16 +2,13 @@
 
 ## Project Overview
 
-The company $ellBy is about to release a large catalog of products on a leading retail website. 
-As they are interested in enrolling in a program that gives out free products to select reviewers, 
-to help them determine if this is worth the cost, we will analyze, in this project, reviews written by 
-members of Amazon Vine, a service that allows manufacturers and publishers to receive reviews for 
-their products. We aim to determine if there is a bias toward favorable Vine reviews. 
+Amazon Vine is a program that allows manufacturers and publishers to receive product reviews. In this project, 
+we aim to determine if there is a bias towards positive Vine reviews and assess the benefits for a company enrolling in such a program.
 
 
 ## Ressouces 
 
-In this project, we are given access to approximately 50 datasets. Each one contains reviews of a specific product, 
+We are given access to approximately 50 datasets. Each one contains reviews of a specific product, 
 from clothing apparel to wireless products:
 
 [Amazon Review datasets](https://s3.amazonaws.com/amazon-reviews-pds/tsv/index.txt)
